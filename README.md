@@ -1,5 +1,7 @@
 # M - Domain-Independent Recursive Core
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23086326.svg)](https://doi.org/10.5281/zenodo.23086326)
+
 Core:
 
     M = (F <-> F)^infinity
