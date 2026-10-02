@@ -88,3 +88,53 @@ Initial independent implementation.
 
 This repository intentionally separates the domain-independent M core
 from domain-specific runtime implementations and validation cases.
+
+
+---
+
+## Recursive Substrate Saturation Protocol
+
+The primitive domain-independent core is extended by an explicit
+recursive substrate execution protocol.
+
+Required sequence:
+
+    POPULATE
+    -> RELATE
+    -> DERIVE
+    -> REINSERT
+    -> RECALCULATE
+    -> SUBTRACT
+    -> INVERSE
+    -> REPEAT
+    -> FIXED POINT
+
+Derived information is reinserted into the cumulative accessible
+substrate:
+
+    K_(n+1) = K_n union Derive[(F <-> F)_(K_n)]
+
+Saturation requires a complete global round with no new information:
+
+    K_(n+1) = K_n
+
+Saturation and epistemic verdict are separate:
+
+- OPEN: execution stopped before saturation.
+- SATURATED: fixed point reached; no stronger verdict established.
+- FROZEN: a necessary result is established.
+- OPEN_UNRESOLVED: fixed point reached with genuinely distinct
+  unresolved alternatives.
+
+Therefore:
+
+    FIXED POINT != OPEN_UNRESOLVED
+
+and:
+
+    INFORMATION NOT EXPLICIT != INFORMATION ABSENT
+
+See `M_RECURSIVE_PROTOCOL.md` for the complete protocol.
+
+The protocol remains domain-independent.
+
