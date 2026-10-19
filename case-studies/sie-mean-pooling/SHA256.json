@@ -1,0 +1,16 @@
+{
+  "CITATION.cff": "8c0e587cf6d5aae40eec20f93d6daf8df3a6b53ed5f677308db288901aeca71a",
+  "LICENSE.upstream": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+  "README.md": "e6b9ddabcc5a87392e520c784cce419a73953ff96562671e066231ccb14007c7",
+  "README.txt": "3dbf9ee344d2bb296f952a193276193bc897a374317b939d289afb886e80f767",
+  "benchmark.py": "fd748a3084cb20f4a83342ba513a01ddcf8290ef2598caea1a4e107bd17da922",
+  "comparison.json": "6d73a2037a8faa5273acb51fc480107236bbb5b98fc15cb461a0965a68a7b223",
+  "environment.txt": "50a1c150d9b6a7797a581f8461864590243d4ce255bc1796305d70b7cc724537",
+  "original_adapter.py": "ea256a3e7d69cf1f6b81c1a764b69d2aad6a53f15663b8a7a056e93304fc92b7",
+  "patched_adapter.py": "0c435b39a9a3b1edea69b3f124fdd64d8a649bca50dc6078fce7c3910cf75dc5",
+  "pooling.py": "13374815d7c74cd0cf26029d6272e4f390b0f287ed23576e73463fc264aa359d",
+  "repair.patch": "86b2bdc81b198f4a2d410b1d129dc71fd1efb825e0cdafb7ce289d9514fe7293",
+  "run_comparison.py": "daa0752dbaa4ec885c547129a8ec5360a3985a810c0e88410d3e283c946f46ea",
+  "test_pooling.py": "03309639c1b6a86d56e0d3681ea60615b5c43e48d946eb7d7090fa7739d902d0",
+  "test_results.txt": "595b828a45b69f78b110c4eb3f01db7499b041063f4aaf6d2b8d3493401191ab"
+}

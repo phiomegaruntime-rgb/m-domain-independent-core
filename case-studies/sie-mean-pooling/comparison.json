@@ -1,0 +1,1025 @@
+{
+  "source_commit": "b80a0292fee27c25da7fd606776a5e24cdac3aac",
+  "protocol": "CPU float32, one torch thread, seed20261019, 3 independent processes per variant per shape, 9 timed calls per process, alternate order",
+  "summary": [
+    {
+      "shape": [
+        4,
+        512,
+        384
+      ],
+      "median_seconds": {
+        "original": 0.00013712699728785083,
+        "patched": 0.00020336700254119933
+      },
+      "median_component_speedup": 0.6742834165541226,
+      "median_first_call_peak_growth_bytes": {
+        "original": 3145728,
+        "patched": 434176
+      },
+      "max_absolute_output_difference": 1.043081283569336e-07,
+      "rtol": 2e-05,
+      "atol": 1e-06
+    },
+    {
+      "shape": [
+        8,
+        2048,
+        768
+      ],
+      "median_seconds": {
+        "original": 0.019994583999505267,
+        "patched": 0.0033294079985353164
+      },
+      "median_component_speedup": 6.0054472171333,
+      "median_first_call_peak_growth_bytes": {
+        "original": 50331648,
+        "patched": 434176
+      },
+      "max_absolute_output_difference": 1.30385160446167e-07,
+      "rtol": 2e-05,
+      "atol": 1e-06
+    },
+    {
+      "shape": [
+        16,
+        4096,
+        1024
+      ],
+      "median_seconds": {
+        "original": 0.11407611399772577,
+        "patched": 0.017107765001128428
+      },
+      "median_component_speedup": 6.668089840502328,
+      "median_first_call_peak_growth_bytes": {
+        "original": 268435456,
+        "patched": 565248
+      },
+      "max_absolute_output_difference": 1.2293457984924316e-07,
+      "rtol": 2e-05,
+      "atol": 1e-06
+    }
+  ],
+  "runs": [
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        4,
+        512,
+        384
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 269660160,
+      "peak_after_first_call_bytes": 272805888,
+      "peak_growth_first_call_bytes": 3145728,
+      "median_seconds": 0.00013712699728785083,
+      "durations_seconds": [
+        0.0007612379995407537,
+        0.00014448799629462883,
+        0.00013014599971938878,
+        0.00012697200145339593,
+        0.00012644100206671283,
+        0.00014520900003844872,
+        0.0004345050037954934,
+        0.00013712699728785083,
+        0.00012720199447358027
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 8192
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 3145728
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 6160
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 6144
+        }
+      ],
+      "output_sha256": "d599eb18a8eee0b4bae09f3d99c92d6b75cf02c74c1130597dababd9ae338bbe",
+      "repeat": 0,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:13 13:13 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:13.108939954 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:13 13:13 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 13\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        4,
+        512,
+        384
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 271134720,
+      "peak_after_first_call_bytes": 271568896,
+      "peak_growth_first_call_bytes": 434176,
+      "median_seconds": 0.00020336700254119933,
+      "durations_seconds": [
+        0.0003459610015852377,
+        0.0004769489969476126,
+        0.00032542100234422833,
+        0.0002709890031837858,
+        0.00020336700254119933,
+        0.00017547400057082996,
+        0.00015778799570398405,
+        0.00014369600103236735,
+        0.0001731810043565929
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 8192
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 6144
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 6144
+        }
+      ],
+      "output_sha256": "f6cedebc3029ea52ed390e477adf68ce55b2cb8c89ca2fc8312faffd5b5b3b06",
+      "repeat": 0,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:16 23:23 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:16.960211810 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:16 23:23 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 23\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        4,
+        512,
+        384
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 271151104,
+      "peak_after_first_call_bytes": 271585280,
+      "peak_growth_first_call_bytes": 434176,
+      "median_seconds": 0.0002824660041369498,
+      "durations_seconds": [
+        0.00043841099977726117,
+        0.0003303179983049631,
+        0.00048397000500699505,
+        0.0002824660041369498,
+        0.00044931699812877923,
+        0.00023263099865289405,
+        0.00018643100338522345,
+        0.00016601000243099406,
+        0.00014800300414208323
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 8192
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 6144
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 6144
+        }
+      ],
+      "output_sha256": "f6cedebc3029ea52ed390e477adf68ce55b2cb8c89ca2fc8312faffd5b5b3b06",
+      "repeat": 1,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:19 33:33 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:19.814212795 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:19 33:33 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 33\n"
+    },
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        4,
+        512,
+        384
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 269602816,
+      "peak_after_first_call_bytes": 272748544,
+      "peak_growth_first_call_bytes": 3145728,
+      "median_seconds": 0.00013213900092523545,
+      "durations_seconds": [
+        0.0007180430038715713,
+        0.00015721700037829578,
+        0.00014551899948855862,
+        0.00013213900092523545,
+        0.0001270020002266392,
+        0.00012812299974029884,
+        0.00019531399448169395,
+        0.00013087700062897056,
+        0.00012971599790034816
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 8192
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 3145728
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 6160
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 6144
+        }
+      ],
+      "output_sha256": "d599eb18a8eee0b4bae09f3d99c92d6b75cf02c74c1130597dababd9ae338bbe",
+      "repeat": 1,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:21 43:43 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:21.653748103 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:21 43:43 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 43\n"
+    },
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        4,
+        512,
+        384
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 269598720,
+      "peak_after_first_call_bytes": 272744448,
+      "peak_growth_first_call_bytes": 3145728,
+      "median_seconds": 0.000151608997839503,
+      "durations_seconds": [
+        0.000796579995949287,
+        0.00015994100249372423,
+        0.0001367959994240664,
+        0.00012756199430441484,
+        0.000151608997839503,
+        0.00016852399858180434,
+        0.00024139399465639144,
+        0.0001345630007563159,
+        0.00012654100282816216
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 8192
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 3145728
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 6160
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 6144
+        }
+      ],
+      "output_sha256": "d599eb18a8eee0b4bae09f3d99c92d6b75cf02c74c1130597dababd9ae338bbe",
+      "repeat": 2,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:24 53:53 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:24.295881448 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:24 53:53 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 53\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        4,
+        512,
+        384
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 271093760,
+      "peak_after_first_call_bytes": 271659008,
+      "peak_growth_first_call_bytes": 565248,
+      "median_seconds": 9.696599590824917e-05,
+      "durations_seconds": [
+        0.00010851399565581232,
+        0.00014340599591378123,
+        9.696599590824917e-05,
+        8.905399590730667e-05,
+        8.750199776841328e-05,
+        8.571900252718478e-05,
+        8.481799886794761e-05,
+        0.00021723800455220044,
+        9.987099474528804e-05
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 8192
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 6144
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 16
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 6144
+        }
+      ],
+      "output_sha256": "f6cedebc3029ea52ed390e477adf68ce55b2cb8c89ca2fc8312faffd5b5b3b06",
+      "repeat": 2,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:27 63:63 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:27.971218456 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:27 63:63 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 63\n"
+    },
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        8,
+        2048,
+        768
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 316796928,
+      "peak_after_first_call_bytes": 367128576,
+      "peak_growth_first_call_bytes": 50331648,
+      "median_seconds": 0.018734010998741724,
+      "durations_seconds": [
+        0.018676074003451504,
+        0.018113386999175418,
+        0.019069786998443305,
+        0.017287130998738576,
+        0.01971250600036001,
+        0.018734010998741724,
+        0.01966630700189853,
+        0.017958632997761015,
+        0.020113820995902643
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 50331648
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 24608
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 24576
+        }
+      ],
+      "output_sha256": "985e1fdad52ac53ecb0a0e02bb58e78d6965db85f82ea7ed77a671ce2e967fcd",
+      "repeat": 0,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:30 73:73 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:30.897755973 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:30 73:73 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 73\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        8,
+        2048,
+        768
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 318291968,
+      "peak_after_first_call_bytes": 318726144,
+      "peak_growth_first_call_bytes": 434176,
+      "median_seconds": 0.003447355004027486,
+      "durations_seconds": [
+        0.003434505000768695,
+        0.0037163700035307556,
+        0.0035784220017376356,
+        0.0035081860041827895,
+        0.0034220470042782836,
+        0.003230207999877166,
+        0.003243217994167935,
+        0.003447355004027486,
+        0.0035658330016303807
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 24576
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 24576
+        }
+      ],
+      "output_sha256": "f4434967760a71d29a74bdde3a58bf72f546de2854827e431dc117e86867ba3d",
+      "repeat": 0,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:33 83:83 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:33.813643210 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:33 83:83 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 83\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        8,
+        2048,
+        768
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 318304256,
+      "peak_after_first_call_bytes": 318738432,
+      "peak_growth_first_call_bytes": 434176,
+      "median_seconds": 0.0032869639981072396,
+      "durations_seconds": [
+        0.0031316599997808225,
+        0.0033305899996776134,
+        0.003528988003381528,
+        0.0034084269937011413,
+        0.0034040699974866584,
+        0.0032869639981072396,
+        0.0029158350007492118,
+        0.0030067510015214793,
+        0.0028777469997294247
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 24576
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 24576
+        }
+      ],
+      "output_sha256": "f4434967760a71d29a74bdde3a58bf72f546de2854827e431dc117e86867ba3d",
+      "repeat": 1,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:35 93:93 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:35.406047384 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:35 93:93 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 93\n"
+    },
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        8,
+        2048,
+        768
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 316821504,
+      "peak_after_first_call_bytes": 367153152,
+      "peak_growth_first_call_bytes": 50331648,
+      "median_seconds": 0.019994583999505267,
+      "durations_seconds": [
+        0.022383282994269393,
+        0.019854883998050354,
+        0.019845830000122078,
+        0.019161088996042963,
+        0.02053205400443403,
+        0.020182428001135122,
+        0.019994583999505267,
+        0.01944848200218985,
+        0.02076058799866587
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 50331648
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 24608
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 24576
+        }
+      ],
+      "output_sha256": "985e1fdad52ac53ecb0a0e02bb58e78d6965db85f82ea7ed77a671ce2e967fcd",
+      "repeat": 1,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:38 103:103 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:38.179094342 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:38 103:103 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 103\n"
+    },
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        8,
+        2048,
+        768
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 316837888,
+      "peak_after_first_call_bytes": 367169536,
+      "peak_growth_first_call_bytes": 50331648,
+      "median_seconds": 0.02128640000591986,
+      "durations_seconds": [
+        0.02575179799896432,
+        0.021985924999171402,
+        0.027203724996070378,
+        0.019878079001500737,
+        0.021130335997440852,
+        0.021055732999229804,
+        0.02128640000591986,
+        0.020673847997386474,
+        0.021765803001471795
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 50331648
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 24608
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 24576
+        }
+      ],
+      "output_sha256": "985e1fdad52ac53ecb0a0e02bb58e78d6965db85f82ea7ed77a671ce2e967fcd",
+      "repeat": 2,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:41 113:113 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:41.167020041 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:41 113:113 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 113\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        8,
+        2048,
+        768
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 318337024,
+      "peak_after_first_call_bytes": 318771200,
+      "peak_growth_first_call_bytes": 434176,
+      "median_seconds": 0.0033294079985353164,
+      "durations_seconds": [
+        0.00327495600504335,
+        0.0033210360052180476,
+        0.0037028010046924464,
+        0.003514286996505689,
+        0.003346424004121218,
+        0.0033294079985353164,
+        0.0032810550037538633,
+        0.003125129995169118,
+        0.003537340999173466
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 24576
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 32
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 24576
+        }
+      ],
+      "output_sha256": "f4434967760a71d29a74bdde3a58bf72f546de2854827e431dc117e86867ba3d",
+      "repeat": 2,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:44 123:123 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:44.012422022 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:44 123:123 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 123\n"
+    },
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        16,
+        4096,
+        1024
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 535007232,
+      "peak_after_first_call_bytes": 803442688,
+      "peak_growth_first_call_bytes": 268435456,
+      "median_seconds": 0.12718461099575507,
+      "durations_seconds": [
+        0.10840891899715643,
+        0.11888823899789713,
+        0.11611631800042232,
+        0.17460390899941558,
+        0.12718461099575507,
+        0.13109511099901283,
+        0.11937661900446983,
+        0.13517575800506165,
+        0.13747331900231075
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 262144
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 268435456
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 65600
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 65536
+        }
+      ],
+      "output_sha256": "385c35dca2bd95a400332d184e97c0fa5c7bd1f88fbddd19e734a88e86c88290",
+      "repeat": 0,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:48 133:133 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:48.703720652 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:48 133:133 SyncActivityProfilerHandler.cpp:46] profiler_stop\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        16,
+        4096,
+        1024
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 536588288,
+      "peak_after_first_call_bytes": 537153536,
+      "peak_growth_first_call_bytes": 565248,
+      "median_seconds": 0.01643034200242255,
+      "durations_seconds": [
+        0.014533572997606825,
+        0.01523094400181435,
+        0.01824323400069261,
+        0.017635998003243003,
+        0.01578695199714275,
+        0.017582707994733937,
+        0.01581073800480226,
+        0.01688061000459129,
+        0.01643034200242255
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 262144
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 65536
+        }
+      ],
+      "output_sha256": "19df51ee84efb4e791b7d5550647c82a176759761f4f527fbe95f2287b5109b0",
+      "repeat": 0,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:52 143:143 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:52.856472166 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:52 143:143 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 143\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        16,
+        4096,
+        1024
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 536514560,
+      "peak_after_first_call_bytes": 537079808,
+      "peak_growth_first_call_bytes": 565248,
+      "median_seconds": 0.017478355999628548,
+      "durations_seconds": [
+        0.017541049004648812,
+        0.01792782300617546,
+        0.01711379700282123,
+        0.016480773003422655,
+        0.017478355999628548,
+        0.018491401999199297,
+        0.01742171099613188,
+        0.019992793000710662,
+        0.015243799993186258
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 262144
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 65536
+        }
+      ],
+      "output_sha256": "19df51ee84efb4e791b7d5550647c82a176759761f4f527fbe95f2287b5109b0",
+      "repeat": 1,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:55 153:153 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:55.291948264 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:55 153:153 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 153\n"
+    },
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        16,
+        4096,
+        1024
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 535031808,
+      "peak_after_first_call_bytes": 803467264,
+      "peak_growth_first_call_bytes": 268435456,
+      "median_seconds": 0.11407611399772577,
+      "durations_seconds": [
+        0.10418998599925544,
+        0.11286666100204457,
+        0.11407611399772577,
+        0.10886514100275235,
+        0.1270305050056777,
+        0.12761315800162265,
+        0.11427261999779148,
+        0.1121479629946407,
+        0.11593776800145861
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 262144
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 268435456
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 65600
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 65536
+        }
+      ],
+      "output_sha256": "385c35dca2bd95a400332d184e97c0fa5c7bd1f88fbddd19e734a88e86c88290",
+      "repeat": 1,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:41:59 163:163 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:41:59.660848867 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:41:59 163:163 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 163\n"
+    },
+    {
+      "variant": "original",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        16,
+        4096,
+        1024
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 535019520,
+      "peak_after_first_call_bytes": 803586048,
+      "peak_growth_first_call_bytes": 268566528,
+      "median_seconds": 0.11345255799824372,
+      "durations_seconds": [
+        0.13332354599697283,
+        0.11723557799996343,
+        0.1139465470041614,
+        0.10280381500342628,
+        0.1039286599989282,
+        0.10481797000102233,
+        0.09949265599425416,
+        0.11345255799824372,
+        0.11886964499717578
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 262144
+        },
+        {
+          "operation": "aten::mul",
+          "self_cpu_memory_bytes": 268435456
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 65600
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 65536
+        }
+      ],
+      "output_sha256": "385c35dca2bd95a400332d184e97c0fa5c7bd1f88fbddd19e734a88e86c88290",
+      "repeat": 2,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:42:04 173:173 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:42:04.388464196 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:42:04 173:173 SyncActivityProfilerHandler.cpp:46] profiler_stop\nFailed to read process name for pid 173\n"
+    },
+    {
+      "variant": "patched",
+      "torch": "2.14.1+cpu",
+      "threads": 1,
+      "shape": [
+        16,
+        4096,
+        1024
+      ],
+      "dtype": "float32",
+      "seed": 20261019,
+      "peak_before_bytes": 536571904,
+      "peak_after_first_call_bytes": 537137152,
+      "peak_growth_first_call_bytes": 565248,
+      "median_seconds": 0.017107765001128428,
+      "durations_seconds": [
+        0.017009486000461038,
+        0.01959230800275691,
+        0.016694452002411708,
+        0.017139903997303918,
+        0.016851699001563247,
+        0.017107765001128428,
+        0.01703065800393233,
+        0.017248636999283917,
+        0.017415919006452896
+      ],
+      "allocations": [
+        {
+          "operation": "aten::empty_strided",
+          "self_cpu_memory_bytes": 262144
+        },
+        {
+          "operation": "aten::bmm",
+          "self_cpu_memory_bytes": 65536
+        },
+        {
+          "operation": "aten::sum",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::clamp",
+          "self_cpu_memory_bytes": 64
+        },
+        {
+          "operation": "aten::div",
+          "self_cpu_memory_bytes": 65536
+        }
+      ],
+      "output_sha256": "19df51ee84efb4e791b7d5550647c82a176759761f4f527fbe95f2287b5109b0",
+      "repeat": 2,
+      "profiler_stdout_logs": "",
+      "stderr": "USDT:2026-10-19 04:42:08 183:183 SyncActivityProfilerHandler.cpp:39] profiler_start\n[W1019 04:42:08.268604982 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event\nUSDT:2026-10-19 04:42:08 183:183 SyncActivityProfilerHandler.cpp:46] profiler_stop\n"
+    }
+  ],
+  "limits": [
+    "Pooling component only; no model forward/server or GPU benchmark",
+    "Floating point reduction order changes; no bitwise-equivalence claim",
+    "No production quality/cost/energy guarantee",
+    "Process high-water RSS includes allocator and runtime effects; inspect profiler allocations separately"
+  ]
+}

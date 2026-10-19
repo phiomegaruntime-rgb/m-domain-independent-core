@@ -1,0 +1,2 @@
+python3 -m pytest -q test_pooling.py
+25 passed in 1.62s

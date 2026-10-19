@@ -1,0 +1,22 @@
+--- a/packages/sie_server/src/sie_server/adapters/pytorch_embedding/__init__.py
++++ b/packages/sie_server/src/sie_server/adapters/pytorch_embedding/__init__.py
+@@ -389,7 +389,13 @@
+         if pooling == "mean":
+             # Mean of non-padding tokens
+             mask = attention_mask.unsqueeze(-1).float()
+-            sum_embeddings = (hidden_state * mask).sum(dim=1)
++            if hidden_state.device.type == "cpu" and hidden_state.dtype == torch.float32:
++                # Reduce directly into [batch, hidden] without a [batch, seq, hidden]
++                # product. Keep fp32 semantics even under an outer CPU autocast.
++                with torch.autocast(device_type="cpu", enabled=False):
++                    sum_embeddings = torch.bmm(mask.transpose(1, 2), hidden_state).squeeze(1)
++            else:
++                sum_embeddings = (hidden_state * mask).sum(dim=1)
+             sum_mask = mask.sum(dim=1).clamp(min=1e-9)
+             return sum_embeddings / sum_mask
+ 
+@@ -509,3 +515,4 @@
+             texts.append(text)
+         return texts
+ 
++# Modified locally for the M audit, 2026-10-19: CPU fp32 mean pooling via bmm.
